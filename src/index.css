@@ -1,0 +1,128 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Spectral:ital,wght@0,300;0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #06060e;
+  --color-surface: #0f0f1c;
+  --color-surface-2: #141424;
+  --color-surface-3: #1a1a2e;
+  --color-surface-4: #20203a;
+
+  --color-border: #22223a;
+  --color-border-hi: #2e2e50;
+  --color-border-gold: rgba(201, 168, 76, 0.25);
+
+  --color-gold: #c9a84c;
+  --color-gold-hi: #dfc06a;
+  --color-gold-dim: #7a6528;
+  --color-gold-glow: rgba(201, 168, 76, 0.12);
+  --color-gold-glow2: rgba(201, 168, 76, 0.05);
+
+  --color-text: #e0d6c4;
+  --color-text-2: #a89e8c;
+  --color-text-hint: #c4baa8;
+  --color-text-muted: #6a6478;
+  --color-text-dim: #383450;
+
+  --color-left: #a894e8;
+  --color-left-bg: rgba(168, 148, 232, 0.18);
+  --color-right: #62d4a4;
+  --color-right-bg: rgba(98, 212, 164, 0.18);
+
+  --color-success: #5caf7e;
+  --color-success-bg: rgba(92, 175, 126, 0.12);
+  --color-success-dim: rgba(92, 175, 126, 0.3);
+
+  --color-error: #bf5a5a;
+  --color-error-bg: rgba(191, 90, 90, 0.12);
+
+  --color-moved-bg: rgba(201, 168, 76, 0.09);
+
+  --font-display: "Cinzel", serif;
+  --font-body: "Spectral", Georgia, serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --radius-base: 7px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+
+  --shadow-card: 0 2px 24px rgba(0, 0, 0, 0.45);
+
+  --animate-solve-shimmer: solve-shimmer 1.1s ease-in-out infinite;
+}
+
+@keyframes solve-shimmer {
+  0% {
+    transform: translateX(-120%);
+  }
+  100% {
+    transform: translateX(320%);
+  }
+}
+
+@layer base {
+  button:not(:disabled),
+  a[href],
+  label:has(input:not(:disabled)),
+  summary {
+    cursor: pointer;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (max-width: 420px) {
+    body {
+      font-size: 16px;
+    }
+  }
+
+  body {
+    background-color: var(--color-bg);
+    background-image:
+      radial-gradient(
+        ellipse 90% 50% at 50% -5%,
+        rgba(201, 168, 76, 0.06) 0%,
+        transparent 55%
+      ),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");
+    color: var(--color-text);
+    font-family: var(--font-body);
+    font-size: 18px;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  dialog::backdrop {
+    background: rgba(6, 6, 14, 0.75);
+    backdrop-filter: blur(2px);
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-bg);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-border-hi);
+    border-radius: 3px;
+  }
+
+  .state-visual-scroll::-webkit-scrollbar {
+    height: 3px;
+  }
+
+  .state-visual-scroll::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .state-visual-scroll::-webkit-scrollbar-thumb {
+    background: var(--color-border-hi);
+    border-radius: 2px;
+  }
+}

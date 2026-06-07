@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://matriz88.github.io/gothic-remake-lockpicking-solver/sitemap.xml
